@@ -14,9 +14,6 @@ swig.setDefaults({ cache: false });
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/htmldecks');
 
-// Serve static files
-app.use(express.static(__dirname + '/public'));
-
 var passport = require('passport')
 // Configuring Passport
 var passport = require('passport');
@@ -41,6 +38,9 @@ var sites = require('./lib/users')(app, passport);
 
 var auth = require('./lib/auth')(app, passport);
 // app.use(auth);
+
+// Serve static files
+app.use(express.static(__dirname + '/public'));
 
 var server = app.listen(3000, function () {
   var host = server.address().address
