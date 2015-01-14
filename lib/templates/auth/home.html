@@ -1,4 +1,17 @@
 {% extends '../_layout.html' %}
 {% block content %}
-Hello {{user.username}}
+<h1>Hello {{user.username}}.</h1>
+<p><a href="/site"><button type="button" class="btn btn-primary">Create a new Deck</button></a></p>
+<table class="table">
+<tr>
+<th>View</th>
+<th>Edit</th>
+</tr>
+{% for deck in sites %}
+<tr>
+<td><a href="view/{{deck.id}}">{{deck.title}}</a></td>
+<td><a href="site/{{deck.id}}">{{deck.title}}</a></td>
+</tr>
+{% endfor %}
+</table>
 {% endblock %}
