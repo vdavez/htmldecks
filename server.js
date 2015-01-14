@@ -12,7 +12,7 @@ swig.setDefaults({ cache: false });
 
 //Set up the stupidly simple database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/htmldecks');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/htmldecks');
 
 var passport = require('passport')
 // Configuring Passport
@@ -42,7 +42,7 @@ var auth = require('./lib/auth')(app, passport);
 // Serve static files
 app.use(express.static(__dirname + '/public'));
 
-var server = app.listen(3000, function () {
+var server = app.listen(process.env.port || 3000, function () {
   var host = server.address().address
   var port = server.address().port
   console.log('Example app listening at http://%s:%s', host, port)
