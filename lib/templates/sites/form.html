@@ -1,0 +1,8 @@
+{% extends '../_layout.html' %}
+{% block content %}
+<h1>My Presentation</h1>
+<form action="{{action}}" method="POST">
+<p><input type="text" name="site_title" id="inputSite_title" class="form-control" value="{{form.title}}" required="required" title="" placeholder="Title"></p>
+<p><textarea name="site_content" id="inputSite_content" class="form-control" value="{{form.content}}" required="required"  title="" placeholder="Content" rows="20">{{form.content}}</textarea></p>
+<p><button type="submit" class="btn btn-primary">Create Site</button></p>
+{% endblock %}
