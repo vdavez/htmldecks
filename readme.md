@@ -11,6 +11,8 @@ This is *also* a slide
 ```
 Once you're done editing the slides, create the deck and start presenting. Simply as that.
 
+In presentation mode, by pressing escape, you'll be able to access a menu to return to editing or prepare the slides for printing in PDF.
+
 # Roadmap
 
 These are the features I'm planning on adding. Feel free to send in a pull request. Thanks!
