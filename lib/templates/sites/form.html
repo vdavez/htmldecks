@@ -4,5 +4,16 @@
 <form action="{{action}}" method="POST">
 <p><input type="text" name="site_title" id="inputSite_title" class="form-control" value="{{form.title}}" required="required" title="" placeholder="Title"></p>
 <p><textarea name="site_content" id="inputSite_content" class="form-control" value="{{form.content}}" required="required"  title="" placeholder="Content" rows="20">{{form.content}}</textarea></p>
+<p><select name="theme" id="inputTheme" class="form-control" required="required">
+    <option value="simple" {% if form.theme == 'simple' %}selected{%endif%}>Simple</option>
+    <option value="white" {% if form.theme == 'white' %}selected{%endif%}>White</option>
+    <option value="black" {% if form.theme == 'black' %}selected{%endif%}>Black</option>
+    <option value="league" {% if form.theme == 'league' %}selected{%endif%}>League</option>
+    <option value="beige" {% if form.theme == 'beige' %}selected{%endif%}>Beige</option>
+    <option value="sky" {% if form.theme == 'sky' %}selected{%endif%}>Sky</option>
+    <option value="night" {% if form.theme == 'night' %}selected{%endif%}>Night</option>
+    <option value="serif" {% if form.theme == 'serif' %}selected{%endif%}>Serif</option>
+    <option value="solarized" {% if form.theme == 'solarized' %}selected{%endif%}>Solarized</option>
+</select></p>
 <p><button type="submit" class="btn btn-primary">Create Site</button></p>
 {% endblock %}
