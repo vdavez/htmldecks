@@ -1,17 +1,45 @@
 {% extends '../_layout.html' %}
 {% block content %}
+<p><div class="pull-right"><a href="/logout"><button class="btn btn-default">Logout</button></a></div></p>
 <h1>Hello {{user.username}}.</h1>
 <p><a href="/site"><button type="button" class="btn btn-primary">Create a new Deck</button></a></p>
 <table class="table">
 <tr>
+<th>Edit Slides</th>
 <th>View</th>
-<th>Edit</th>
+<th>Delete</th>
 </tr>
 {% for deck in sites %}
 <tr>
-<td><a href="view/{{deck.id}}">{{deck.title}}</a></td>
 <td><a href="site/{{deck.id}}">{{deck.title}}</a></td>
+<td><a href="view/{{deck.id}}"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></a></td>
+<td><a data-href="site/{{deck.id}}/delete" data-toggle="modal" data-target="#confirm-delete" href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 </tr>
 {% endfor %}
 </table>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Confirm Delete
+            </div>
+            <div class="modal-body">
+                <p>You are about to delete a slide deck!</p>
+                <p>Are you <strong>sure</strong> you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a href="#" class="btn btn-danger danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+{% block extra_js %}
+<script>
+$('#confirm-delete').on('show.bs.modal', function(e) {
+    $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+});
+</script>
+{%endblock%}
