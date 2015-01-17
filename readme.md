@@ -21,7 +21,7 @@ These are the features I'm planning on adding. Feel free to send in a pull reque
 - [ ] Set up an email activation system
 - [ ] Allow for password change
 - [ ] Set up 2fa
-- [ ] Custom css
+- [x] Custom css
 
 # About
 

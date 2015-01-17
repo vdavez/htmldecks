@@ -1,9 +1,14 @@
 {% extends '../_layout.html' %}
 {% block content %}
 <h1>My Presentation</h1>
+<div class="row">
+<div class="col-sm-7">
+
 <form action="{{action}}" method="POST">
 <p><input type="text" name="site_title" id="inputSite_title" class="form-control" value="{{form.title}}" required="required" title="" placeholder="Title"></p>
-<p><textarea name="site_content" id="inputSite_content" class="form-control" value="{{form.content}}" required="required"  title="" placeholder="Content" rows="20">{{form.content}}</textarea></p>
+<p><textarea name="site_content" id="inputSite_content" class="form-control" value="{{form.content}}" required="required"  title="" placeholder="Hello
+---
+World" rows="20">{{form.content}}</textarea></p>
 <p><select name="theme" id="inputTheme" class="form-control" required="required">
     <option value="simple" {% if form.theme == 'simple' %}selected{%endif%}>Simple</option>
     <option value="white" {% if form.theme == 'white' %}selected{%endif%}>White</option>
@@ -16,4 +21,50 @@
     <option value="solarized" {% if form.theme == 'solarized' %}selected{%endif%}>Solarized</option>
 </select></p>
 <p><button type="submit" class="btn btn-primary">Create Site</button></p>
+</form>
+</div>
+<div class="col-sm-5">
+<div>
+<div class="table-responsive">
+<table class="table table-condensed table-striped" width="100%">
+<thead>
+<th>Syntax</th><th>Description</th><th>Example usage</th>
+</thead>
+<tbody>
+    <tr>
+        <td>---</td><td>New Slide</td><td>Hello<br>---<br>World</td>
+    </tr>
+    <tr>
+        <td>#</td><td>Heading</td><td># This is a Heading</td>
+    </tr>
+    <tr>
+        <td>* </td><td>Lists</td><td>* First<br>* Second</td>
+    </tr>
+    <tr>
+        <td>1. </td><td>Numbered Lists</td><td>1. First<br>2. Second</td>
+    </tr>
+    <tr>
+        <td>> </td><td>Block Quote</td><td>> This is a Quote!</td>
+    </tr>
+    <tr>
+        <td>*...*</td><td>Italics</td><td>This is in *italics*!</td>
+    </tr>
+    <tr>
+        <td>**...**</td><td>Bold</td><td>This is in **bold**!</td>
+    </tr>
+    <tr>
+        <td>[...](...)</td><td>Links</td><td>This is a [link to htmldecks](http://htmldecks.com).</td>
+    </tr>
+    <tr>
+        <td>![](...)</td><td>Images</td><td>This is an img ![](https://path/to/image.png)</td>
+    </tr>
+    <tr>
+        <td colspan="3">For more options, <a href="http://daringfireball.net/projects/markdown/syntax">click here to view the Markdown specification</a>.</td>
+    </tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
 {% endblock %}
