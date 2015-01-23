@@ -21,6 +21,12 @@ World" rows="20">{{form.content}}</textarea></p>
     <option value="serif" {% if form.theme == 'serif' %}selected{%endif%}>Serif</option>
     <option value="solarized" {% if form.theme == 'solarized' %}selected{%endif%}>Solarized</option>
 </select></p>
+<p><div class="checkbox">
+    <label>
+        <input name="is_private" id="inputSite_is_private" type="checkbox" value="true" {% if form.is_private == true%}checked{%endif%}>
+        Private?
+    </label>
+</div>
 <p><button type="submit" class="btn btn-primary">Create Site</button></p>
 </form>
 </div>
