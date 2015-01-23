@@ -17,7 +17,7 @@ In presentation mode, by pressing escape, you'll be able to access a menu to ret
 
 These are the features I'm planning on adding. Feel free to send in a pull request. Thanks!
 
-- [ ] Set up a private slidedeck option
+- [x] Set up a private slidedeck option
 - [ ] Set up an email activation system
 - [ ] Allow for password change
 - [ ] Set up 2fa
