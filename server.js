@@ -1,13 +1,6 @@
 var express = require('express')
 var app = express()
 
-// app.get('*',function(req,res,next){
-//   if(req.headers['x-forwarded-proto']!='https')
-//     res.redirect('https://htmldecks.com'+req.url)
-//   else
-//     next() /* Continue to other routes if we're not redirecting */
-// })
-
 // Rendering template
 var engines = require('consolidate');
 swig = require('swig'),
@@ -38,6 +31,13 @@ app.use(flash());
 // Initialize Passport
 var initPassport = require('./lib/auth/init');
 initPassport(passport);
+
+app.get('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https')
+    res.redirect('https://htmldecks.com'+req.url)
+  else
+    next() /* Continue to other routes if we're not redirecting */
+})
 
 var sites = require('./lib/sites')(app, passport);
 var sites = require('./lib/users')(app, passport);
