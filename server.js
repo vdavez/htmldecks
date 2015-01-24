@@ -1,12 +1,12 @@
 var express = require('express')
 var app = express()
 
-app.get('*',function(req,res,next){
-  if(req.headers['x-forwarded-proto']!='https')
-    res.redirect('https://htmldecks.com'+req.url)
-  else
-    next() /* Continue to other routes if we're not redirecting */
-})
+// app.get('*',function(req,res,next){
+//   if(req.headers['x-forwarded-proto']!='https')
+//     res.redirect('https://htmldecks.com'+req.url)
+//   else
+//     next() /* Continue to other routes if we're not redirecting */
+// })
 
 // Rendering template
 var engines = require('consolidate');
