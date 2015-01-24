@@ -1,7 +1,7 @@
 {
   "name": "htmldecks",
   "version": "0.2.0",
-  "engine": {"npm": ">=v0.10.3 <0.12"},
+  "engine": {"node": ">=v0.10.3 <0.12"},
   "description": "FOSS HTML Presentations, Hosted for Free",
   "main": "server.js",
   "dependencies": {

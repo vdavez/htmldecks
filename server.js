@@ -3,7 +3,7 @@ var app = express()
 
 // SSL IN HEROKU
 heroku = process.env.HEROKU || false;
-if (heroku == true) {
+if (heroku != false) {
     var enforce = require('express-sslify');
     app.use(enforce.HTTPS(true));
 }
