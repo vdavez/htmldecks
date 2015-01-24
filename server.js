@@ -3,9 +3,9 @@ var app = express()
 
 // SSL IN HEROKU
 heroku = process.env.HEROKU || false;
-if (heroku == 'true') {
-    var sslRedirect = require('heroku-ssl-redirect');
-    app.use(sslRedirect());
+if (heroku == true) {
+    var enforce = require('express-sslify');
+    app.use(enforce.HTTPS(true));
 }
 
 // Rendering template
