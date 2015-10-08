@@ -12,6 +12,7 @@
 World" rows="20">{{form.content}}</textarea></p>
 <p><select name="theme" id="inputTheme" class="form-control" required="required">
     <option value="simple" {% if form.theme == 'simple' %}selected{%endif%}>Simple</option>
+    <option value="18F" {% if form.theme == '18f' %}selected{%endif%}>18F</option>
     <option value="white" {% if form.theme == 'white' %}selected{%endif%}>White</option>
     <option value="black" {% if form.theme == 'black' %}selected{%endif%}>Black</option>
     <option value="league" {% if form.theme == 'league' %}selected{%endif%}>League</option>
