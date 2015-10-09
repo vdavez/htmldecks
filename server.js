@@ -1,5 +1,5 @@
-var express = require('express')
-var app = express()
+var express = require('express');
+var app = express();
 
 // SSL IN HEROKU
 heroku = process.env.HEROKU || false;
@@ -17,9 +17,6 @@ app.set('views', __dirname + '/lib/templates/');
 app.set('view cache', false);
 swig.setDefaults({ cache: false });
 
-//Set up the stupidly simple database
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/htmldecks');
 
 var passport = require('passport')
 // Configuring Passport
@@ -49,8 +46,4 @@ var auth = require('./lib/auth')(app, passport);
 // Serve static files
 app.use(express.static(__dirname + '/public'));
 
-var server = app.listen(process.env.PORT || 3000, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log('Example app listening at http://%s:%s', host, port)
-})
+module.exports = app;
